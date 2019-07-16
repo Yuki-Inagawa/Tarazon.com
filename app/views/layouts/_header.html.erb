@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="header-logo" href="/">Tarazon.co.jp</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="header" href="#">カテゴリ <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="header" href="#">ランキング</a>
+      </li>
+      <%# @guest %>
+      <li class="nav-item">
+        <a class="header" href="/login">ログイン</a>
+      </li>
+        <%# @if (Route::has('register')) %>
+        <li class="nav-item">
+        <a class="header" href="/register">新規ユーザー登録</a>
+        </li>
+        <%# @endif
+    @else %>
+        <li class="nav-item">
+        <!-- <a class="header" method="POST" href="{{ route('logout') }}"></a> -->
+        <a class="header" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+        ログアウト
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <%# @csrf %>
+        </form>
+        <li class="nav-item">
+        <%# <a class="header" href="/register">{{ Auth::user()->name }}さんのマイページ</a> %>
+        </li>
+    <%# @endguest %>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="search-box" type="search" placeholder="Search" aria-label="Search">
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
