@@ -1,0 +1,57 @@
+<header>
+<%= render partial: "/layouts/header"%>
+</header>
+  <div class="create">
+    <%= form_tag('/products', method: :post) do %>
+    <h3>
+      投稿する
+    </h3>
+    <div class="title">
+            <label for="exampleFormControlInput1">商品名</label>
+            <input class="input" type="text" name="title" placeholder="商品名を入力してください">
+          </div>
+
+          <div class="image">
+            <label for="exampleFormControlFile1">商品写真</label>
+            <input class="input" type="file" name="image">
+          </div>
+
+          <div class="price">
+          <label>値段:<input type="number" name="price">円</label>
+          </div>
+
+          <div class="description">
+            <label for="exampleFormControlTextarea1">商品詳細</label>
+            <textarea class="input" name="description"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-warning">出品する</button>
+  <% end %>
+        <%# <form method="post" action="/products">
+
+          <div class="title">
+            <label for="exampleFormControlInput1">商品名</label>
+            <input class="input" type="text" name="title" placeholder="商品名を入力してください">
+          </div>
+
+          <div class="image">
+            <label for="exampleFormControlFile1">商品写真</label>
+            <input class="input" type="file" name="image">
+          </div>
+
+          <div class="price">
+          <label>値段:<input type="number" name="price">円</label>
+          </div>
+
+          <div class="description">
+            <label for="exampleFormControlTextarea1">商品詳細</label>
+            <textarea class="input" name="description"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-warning">出品する</button>
+        
+        </form> %>
+  </div>
+  
+
+<%= render partial: "/layouts/footer"%>
