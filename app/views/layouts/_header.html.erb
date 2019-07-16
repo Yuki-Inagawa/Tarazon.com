@@ -12,30 +12,26 @@
       <li class="nav-item">
         <a class="header" href="#">ランキング</a>
       </li>
-      <%# @guest %>
-      <li class="nav-item">
-        <a class="header" href="/login">ログイン</a>
-      </li>
-        <%# @if (Route::has('register')) %>
+      <% if user_signed_in? %>
         <li class="nav-item">
-        <a class="header" href="/register">新規ユーザー登録</a>
+          <a class="header" href="/users/<%= current_user.id %>">マイページ</a>
         </li>
-        <%# @endif
-    @else %>
         <li class="nav-item">
-        <!-- <a class="header" method="POST" href="{{ route('logout') }}"></a> -->
-        <a class="header" href="{{ route('logout') }}"
-        onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();">
-        ログアウト
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            <%# @csrf %>
-        </form>
-        <li class="nav-item">
-        <%# <a class="header" href="/register">{{ Auth::user()->name }}さんのマイページ</a> %>
+          <div class="logout">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </div>
         </li>
-    <%# @endguest %>
+      <% else %>
+        <li class="nav-item">
+          <a class="header" href=" /users/sign_in">ログイン</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="header" href="/users/sign_up">新規ユーザー登録</a>
+        </li>
+
+      <% end %>
+    
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="search-box" type="search" placeholder="Search" aria-label="Search">
