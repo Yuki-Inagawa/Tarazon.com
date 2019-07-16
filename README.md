@@ -29,7 +29,7 @@
 |image|text||
 |description|text||
 |price|integer||
-|user|references|null: false, foreign_key: true|
+|user_id|integer||
 ### Association
 - belongs_to :user
 - has_many :reviews
