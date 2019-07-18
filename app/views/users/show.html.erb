@@ -1,0 +1,6 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの出品一覧</p>
+  <% @products.each do |product| %>
+    <%= product.name %>
+  <% end %>
+</div>
