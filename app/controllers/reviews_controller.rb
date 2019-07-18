@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
     # トップページにリダイレクトする
     review.save
     redirect_to controller: :products, action: :index
-   
   end
 
   private
