@@ -3,7 +3,7 @@
 </header>
   <%= render partial: "jumbotron"%>
   <div class="main">
-    
+    <h2><%= current_user.nickname%>さんの出品</h2>
   <div class="card mb-3">
   <img src='<%= @product.image %>' class="show_image">
   <div class="card-body">
@@ -23,7 +23,7 @@
   <i class="icon-movie color-gray-light"></i>みんなのレビュー
 </h2>
 <% @product.reviews.each do |review| %>
-  <li style="border-bottom: dotted 1px">さんのレビュー
+  <li style="border-bottom: dotted 1px"><%= current_user.nickname%>さんのレビュー
     <div class="thumbnail__caption">
       <p class="text-small">
         <span class="rating-star">
