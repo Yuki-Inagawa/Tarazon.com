@@ -5,22 +5,22 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
-    Product.create(
-      title: product_params[:title],
-      image: product_params[:image],
-      description: product_params[:description],
-      price: product_params[:price],
-      user_id: current_user.id)
+    Product.create(product_params)
       redirect_to root_path
   end
 
+  def show
+    @product = Product.find(params[:id])
+    # @comments = @tweet.comments.includes(:user)
+  end
 
 
 private
   def product_params
-    params.permit(:title, :image, :description,:price)
+    params.require(:product).permit(:title, :image, :description,:price).merge(user_id: current_user.id)
   end
 end

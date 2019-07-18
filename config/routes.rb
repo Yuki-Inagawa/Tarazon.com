@@ -2,5 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'products#index'
-  resources :products
+  resources :products do
+    resources :reviews,only: [:new, :create]
+    collection do
+      get 'search'
+    end
+  end
+
 end
