@@ -1,17 +1,17 @@
 <header>
 <%= render partial: "/layouts/header"%>
 </header>
-
+<%= render partial: "jumbotron"%>
   <div class="main">
-    <%= render partial: "jumbotron"%>
+    
       <% @products.each do |product| %>
       <div class="product" style="width: 18rem;">
-      <img src='mark.jpg' class="card-img-top">
+      <img src='<%= product.image %>' class="card-img-top">
       <div class="card-body">
           <h5 class="card-title"><%= product.title %></h5>
           <p class="card-text"><%= product.description %></p>
           <h6 class="price"><%= product.price %></h6>
-          <a href="" class="btn btn-primary">商品詳細</a>
+          <a href="/products/<%= product.id %>" class="btn btn-primary">商品詳細</a>
       </div>
       </div>
       <% end %>
