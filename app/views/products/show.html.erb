@@ -11,7 +11,11 @@
     <h6 class="card-title">価格：<%= @product.price%>円</h6>
     <p class="card-text">商品詳細：<%= @product.description%></p>
   </div>
-  <p><a class="btn btn-primary btn-lg" href="/products/<%= @product.id %>/reviews/new" role="button">レビューを書く</a></p>
+    <p><a class="btn btn-primary btn-lg" href="/products/<%= @product.id %>/reviews/new" role="button">レビューを書く</a></p>
+    <%# <% if user_signed_in? && current_user.id == tweet.user_id %> 
+    <p><a class="btn btn-primary btn-lg" href="/products/<%= @product.id %>/edit" role="button">編集</a></p>
+    <p><%= link_to '削除', "/products/#{@product.id}", method: :delete, class: "btn btn-primary btn-lg"%></p>
+    <%# <% end %> 
 </div>
 
 
