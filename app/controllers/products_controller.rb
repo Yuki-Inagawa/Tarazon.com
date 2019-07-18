@@ -18,6 +18,22 @@ class ProductsController < ApplicationController
     # @comments = @tweet.comments.includes(:user)
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    product.update(product_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+  end
+
 
 private
   def product_params
