@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root 'products#index'
   get   'users/:id'   =>  'users#show'
   resources :products do
+    collection do
+      get 'ranking'
+    end
     resources :reviews,only: [:new, :create]
     collection do
       get 'search'

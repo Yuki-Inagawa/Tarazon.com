@@ -1,0 +1,21 @@
+<header>
+<%= render partial: "/layouts/header"%>
+</header>
+<%= render partial: "jumbotron"%>
+  <div class="main">
+  <h2>評価数ランキング</h2>
+  <% @ranking.each_with_index do |r,index| %>
+      <div class="product" style="width: 18rem;">
+      <img src='<%= r.image %>' class="card-img-top">
+      <div class="card-body">
+          <h5 class="card-title">順位：<%= index + 1 %></h5>
+          <h5 class="card-title">評価数：<%= r.reviews.length %></h5>
+          <h5 class="card-title">商品名：<%= r.title %></h5>
+          <h6 class="price">価格：<%= r.price %>円</h6>
+          <a href="/products/<%= r.id %>" class="btn btn-primary">商品詳細</a>
+      </div>
+      </div>
+      <% end %>
+  </div>
+
+<%= render partial: "/layouts/footer"%>

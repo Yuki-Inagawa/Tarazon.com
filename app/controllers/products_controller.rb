@@ -34,6 +34,10 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def ranking
+    @ranking = Product.find(Review.group(:product_id).order('count(product_id) desc').pluck(:product_id))
+  end
+
 
 private
   def product_params
