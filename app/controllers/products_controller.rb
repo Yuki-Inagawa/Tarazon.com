@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @products = Product.includes(:user).order("created_at DESC")
+    @products = Product.includes(:user).order("created_at DESC").limit(20)
   end
 
   def new
@@ -37,8 +37,6 @@ class ProductsController < ApplicationController
   def ranking
     @ranking = Product.find(Review.group(:product_id).order('count(product_id) desc').pluck(:product_id))
   end
-
-
 private
   def product_params
     params.require(:product).permit(:title, :image, :description,:price).merge(user_id: current_user.id)
