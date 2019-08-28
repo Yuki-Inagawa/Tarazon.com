@@ -1,6 +1,13 @@
 # Tarazon.com
 
+topページ
+
 https://user-images.githubusercontent.com/51869763/63823735-d4404980-c98f-11e9-8ed9-73e60c66d81e.png
+
+
+詳細ページ
+
+https://user-images.githubusercontent.com/51869763/63823905-50d32800-c990-11e9-92f9-8f6a38061e50.png
 
 １）プロジェクト名
 
